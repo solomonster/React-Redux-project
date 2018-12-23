@@ -17,20 +17,14 @@
          name:'Ismail',
          age: 24
      }
-     handleClick = (e) =>{
-         //console.log(e.target);
-         this.setState({
-             name: "Ishaq",
-             age: 29
-             });
-         console.log(this.state);
+     handleChange=(e)=>{
+        this.setState({
+            name:e.target.value
+        });
      }
-     handleMouseOver=(e)=>{
-         console.log(e);
-     }
-
-     handleCopy=(e)=>{
-         console.log('Try being original for once');
+     handleSubmit=(e)=>{
+        e.preventDefault();
+        console.log('form submitted',this.state.name);
      }
      render() {
 
@@ -38,9 +32,10 @@
              <div className="app-content">
                 <h1>Hey, My name is Ismodon </h1>
                 <p>My name is {this.state.name } and i am {this.state.age} years old</p>
-                <button onClick={this.handleClick}>Click me</button>
-                <button onMouseOver={this.handleMouseOver}>Hover me</button>
-                <p onCopy={this.handleCopy}> What we think , we become </p>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" onChange={this.handleChange}/>
+                    <button>Submit</button>
+                </form>
             </div>
          )
      }
