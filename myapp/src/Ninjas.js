@@ -1,6 +1,7 @@
 import React from 'react';
+import  './Ninjas.css';
 
-const  Ninjas= ({ninjas}) =>{
+const  Ninjas= ({ninjas,deleteNinja}) =>{
     const ninjaList= ninjas.map(ninja =>{
         if(ninja.age > 34){
         return (
@@ -8,6 +9,7 @@ const  Ninjas= ({ninjas}) =>{
                 <div>Name:{ninja.name}</div>
                 <div>Age:{ninja.age}</div>
                 <div>belt:{ninja.belt}</div>
+                <button onClick={()=>{deleteNinja(ninja.id)}}>Delete ninja</button>
             </div>
            )}
 
@@ -20,4 +22,4 @@ const  Ninjas= ({ninjas}) =>{
         )
           
 }
-export default Ninjas
+export default Ninjas;
